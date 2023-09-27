@@ -11,6 +11,7 @@ const adminpaths = [
   { pathUrl: '/', routeFile: 'index'},
   { pathUrl: '/register', routeFile: 'register'},
   { pathUrl: '/dashboard', routeFile: 'dashboard'},
+  { pathUrl: '/users', routeFile: 'users'},
 ]
 
 var session = require("express-session");
