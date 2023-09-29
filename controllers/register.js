@@ -23,7 +23,7 @@ exports.postregister = async (req, res) => {
                 return responseManager.badrequest({ message: "Email id already exist, Please try again with new email..." }, res);
             }
         } else {
-            return responseManager.badrequest({ message: "Invalid email to create user, Please try again" }, res);
+            return responseManager.badrequest({ message: "Hey Invalid email to create user, Please try again" }, res);
         }
     } else {
         return responseManager.badrequest({ message: "Invalid data to create user, Please try again" }, res);
