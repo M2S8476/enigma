@@ -7,7 +7,17 @@ const helper = require('../utilities/helper');
 var userModel = require('../models/user.models');
 
 exports.viewadduser = async (req, res) => {
-    res.render('adduser', { title: 'Express' });
+    if (req.session.userId) {
+        let primary = mongoConnection.useDb(constants.DEFAULT_DB);
+        let userData = await primary.model(constants.MODELS.users, userModel).findById(req.session.userId).lean();
+        if (userData) {
+            res.render('adduser', { title: 'adduser' });
+        } else {
+            res.redirect("/");
+        }
+    } else {
+        res.redirect("/");
+    }
 };
 exports.postadduser = async (req, res) => {
 
@@ -23,7 +33,7 @@ exports.postadduser = async (req, res) => {
                 return responseManager.badrequest({ message: "Email id already exist, Please try again with new email..." }, res);
             }
         } else {
-            return responseManager.badrequest({ message: "Invalid email to create user, Please try again" }, res);
+            return responseManager.badrequest({ message: "MMS Invalid email to create user, Please try again" }, res);
         }
     } else {
         return responseManager.badrequest({ message: "Invalid data to create user, Please try again" }, res);

@@ -1,15 +1,15 @@
 <div class="container" style="margin-top: 100px;">
     <div class="modalbox" style="padding-left: 250px; padding-right: 250px;">
         <!-- BEGIN: Input -->
-        <form id="" class="" method="POST" ng-submit="\()" ng-controller="AdduserController">
-            <div class="intro-y box">
-                <div
-                    class="flex flex-col sm:flex-row items-center p-5 border-b border-slate-200/60 dark:border-darkmode-400">
-                    <h2 class="font-medium text-base mr-auto">
-                        Add User
-                    </h2>
-                </div>
-                <div id="input" class="p-5">
+        <div class="intro-y box" ng-controller="AdduserController">
+            <div
+                class="flex flex-col sm:flex-row items-center p-5 border-b border-slate-200/60 dark:border-darkmode-400">
+                <h2 class="font-medium text-base mr-auto">
+                    Add User
+                </h2>
+            </div>
+            <div id="input" class="p-5">
+                <form id="" class="" method="POST" ng-submit="onAdduser">
                     <div class="preview">
                         <div>
                             <!-- <label for="regular-form-1" class="form-label">First Name</label> -->
@@ -54,10 +54,10 @@
                             <button type="submit" class="btn btn-primary py-3 px-4 w-full xl:w-32 xl:mr-3 align-top">Add
                                 User</button>
                         </div>
-                    </div>
-                </div>
+                </form>
             </div>
-        </form>
-        <!-- END: Input -->
+        </div>
     </div>
+    <!-- END: Input -->
+</div>
 </div>
