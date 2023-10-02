@@ -13,10 +13,10 @@ let schema = new mongoose.Schema({
         type : String,
         require : true
     },
-    gender : {
-        type : String,
-        require : true
-    },
+    // gender : {
+    //     type : String,
+    //     require : true
+    // },
     password : {
         type : String,
         require : true
