@@ -12,6 +12,7 @@ app.controller("AdduserController", ($scope, $http) => {
             }).then(
                 function (response) {
                     if (response.data.IsSuccess == true && response.data.Data != 0) {
+                        swal("Success", response.data.Message, "success")
                         window.location.href = "/users"
                     } else {
                         swal("Oops", response.data.Message, "error")

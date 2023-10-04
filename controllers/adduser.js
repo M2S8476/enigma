@@ -27,7 +27,15 @@ exports.postadduser = async (req, res) => {
             let checkExisting = await primary.model(constants.MODELS.users, userModel).findOne({ email: req.body.email }).lean();
             if (checkExisting == null) {
                 req.body.password = await helper.passwordEncryptor(req.body.password);
-                let newuser = await primary.model(constants.MODELS.users, userModel).create(req.body);
+                let newuser = await primary.model(constants.MODELS.users, userModel).create({
+                    createby: req.session.userId,
+                    firstname: req.body.firstname,
+                    lastname: req.body.lastname,
+                    email: req.body.email,
+                    password: req.body.password,
+                    gender: req.body.gender,
+
+                });
                 return responseManager.onSuccess('User Created Successfully..', newuser, res);
             } else {
                 return responseManager.badrequest({ message: "Email id already exist, Please try again with new email..." }, res);
