@@ -21,3 +21,7 @@ exports.viewusers = async (req, res) => {
         res.redirect("/");
     }
 };
+
+exports.postusers = async (req, res) => {
+
+}
