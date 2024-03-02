@@ -23,5 +23,4 @@ exports.viewusers = async (req, res) => {
 };
 
 exports.postusers = async (req, res) => {
-
 }
